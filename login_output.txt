@@ -1,0 +1,39 @@
+
+To sign in to the Firebase CLI:
+
+1. Take note of your session ID:
+
+   [1m4341F[22m
+
+2. Visit the URL below on any device and follow the instructions to get your code:
+
+   https://auth.firebase.tools/login?code_challenge=mr991-whlSXtpCESF0XSUkJxh9CEw7bFkZRIkZWn0BI&session=4341fe6a-9bc7-4b0f-b169-dd1e3bec9881&attest=RBZ2CQ6vsYf8jP-7X4ZYMEJSKGayIWQahFBRm_MGViY
+
+3. Paste or enter the authorization code below once you have it:
+
+? Enter authorization code: [28D[28C[2K[G? Enter authorization code: 4[29D[29C[2K[G? Enter authorization code: 4/[30D[30C[2K[G? Enter authorization code: 4/0[31D[31C[2K[G? Enter authorization code: 4/0A[32D[32C[2K[G? Enter authorization code: 4/0Af[33D[33C[2K[G? Enter authorization code: 4/0Afr[34D[34C[2K[G? Enter authorization code: 4/0AfrI[35D[35C[2K[G? Enter authorization code: 4/0AfrIe[36D[36C[2K[G? Enter authorization code: 4/0AfrIep[37D[37C[2K[G? Enter authorization code: 4/0AfrIepA[38D[38C[2K[G? Enter authorization code: 4/0AfrIepAi[39D[39C[2K[G? Enter authorization code: 4/0AfrIepAiS[40D[40C[2K[G? Enter authorization code: 4/0AfrIepAiSW[41D[41C[2K[G? Enter authorization code: 4/0AfrIepAiSWA[42D[42C[2K[G? Enter authorization code: 4/0AfrIepAiSWAq[43D[43C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqU[44D[44C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUO[45D[45C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOl[46D[46C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlD[47D[47C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg[48D[48C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg0[49D[49C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09[50D[50C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09J[51D[51C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09Jh[52D[52C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09Jha[53D[53C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaP[54D[54C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPT[55D[55C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTW[56D[56C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWH[57D[57C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi[58D[58C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9[59D[59C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K[60D[60C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K7[61D[61C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78[62D[62C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78w[63D[63C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wo[64D[64C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wok[65D[65C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD[66D[66C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7[67D[67C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n[68D[68C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4[69D[69C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R[70D[70C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2[71D[71C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v[72D[72C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5[73D[73C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5g[74D[74C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gG[75D[75C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB[76D[76C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4[77D[77C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4Y[78D[78C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4Ye[79D[79C[2K[G? Enter authorization code: 4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4Yek
+[1A[0D[80C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekS[1A[53D[81C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekSt[1A[54D[82C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStN[1A[55D[83C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa[1A[56D[84C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_[1A[57D[85C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_e[1A[58D[86C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eU[1A[59D[87C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP[1A[60D[88C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4[1A[61D[89C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4a[1A[62D[90C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4av[1A[63D[91C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4ava[1A[64D[92C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avat[1A[65D[93C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatw[1A[66D[94C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwl[1A[67D[95C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwld[1A[68D[96C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwldC[1A[69D[97C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwldCj[1A[70D[98C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwldCjk[1A[71D[99C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwldCjkB[1A[72D[100C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwldCjkBA[1A[73D[101C[1B[2K[1A[2K[G? Enter authorization code: 
+4/0AfrIepAiSWAqUOlDg09JhaPTWHi9K78wokD7n4R2v5gGB4YekStNa_eUP4avatwldCjkBA[1A[73D[101C
+[1B
+[32m[1m+ [22m[39m Success! Logged in as [1mniyasjahangeer772@gmail.com[22m

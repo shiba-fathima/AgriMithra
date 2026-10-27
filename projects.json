@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "result": [
+    {
+      "projectId": "medi-ai-f5ab0",
+      "projectNumber": "241436652845",
+      "displayName": "AgriMithra",
+      "name": "projects/medi-ai-f5ab0",
+      "resources": {
+        "hostingSite": "medi-ai-f5ab0"
+      },
+      "state": "ACTIVE",
+      "etag": "1_6e76271f-1cce-4b6e-8124-9d564c231c3c"
+    }
+  ]
+}
