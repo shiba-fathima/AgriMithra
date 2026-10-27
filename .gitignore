@@ -15,3 +15,5 @@ node_modules
 .next/
 .firebase/
 .DS_Store
+.vercel
+out/

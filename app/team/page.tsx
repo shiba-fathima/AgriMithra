@@ -126,36 +126,36 @@ export default function TeamPage() {
         <section className="bg-gradient-to-b from-primary/5 via-background to-background py-16 relative">
           <div className="absolute top-6 right-6 z-10 hidden sm:flex items-center gap-2 bg-white/60 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-slate-200">
             <Languages className="w-5 h-5 text-slate-500" />
-            <button 
-               onClick={() => setLang('en')} 
-               className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'en' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
+            <button
+              onClick={() => setLang('en')}
+              className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'en' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
             >
-               English
+              English
             </button>
-            <button 
-               onClick={() => setLang('kn')} 
-               className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'kn' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
+            <button
+              onClick={() => setLang('kn')}
+              className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'kn' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
             >
-               ಕನ್ನಡ
+              ಕನ್ನಡ
             </button>
           </div>
 
           <div className="container mx-auto px-4 relative">
-             <div className="flex sm:hidden justify-center mb-6 items-center gap-2 bg-white/60 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-slate-200 w-fit mx-auto">
-                <Languages className="w-5 h-5 text-slate-500" />
-                <button 
-                   onClick={() => setLang('en')} 
-                   className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'en' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
-                >
-                   EN
-                </button>
-                <button 
-                   onClick={() => setLang('kn')} 
-                   className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'kn' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
-                >
-                   ಕನ್ನಡ
-                </button>
-             </div>
+            <div className="flex sm:hidden justify-center mb-6 items-center gap-2 bg-white/60 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-slate-200 w-fit mx-auto">
+              <Languages className="w-5 h-5 text-slate-500" />
+              <button
+                onClick={() => setLang('en')}
+                className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'en' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang('kn')}
+                className={`text-sm font-semibold transition-all px-2 py-1 rounded-md ${lang === 'kn' ? 'bg-primary text-white' : 'text-slate-500 hover:bg-slate-100'}`}
+              >
+                ಕನ್ನಡ
+              </button>
+            </div>
 
             <div className="mx-auto max-w-3xl text-center">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
@@ -182,7 +182,7 @@ export default function TeamPage() {
                       {/* Avatar */}
                       <Avatar className="h-40 w-40 mb-6 ring-[6px] ring-primary/10 shadow-xl transition-transform duration-500 group-hover:scale-[1.05] group-hover:-translate-y-2">
                         {member.image ? (
-                           <img src={member.image} alt={member.name} className="object-cover w-full h-full rounded-full" />
+                          <img src={member.image} alt={member.name} className="object-cover w-full h-full rounded-full" />
                         ) : (
                           <AvatarFallback className={`text-3xl font-bold ${member.color}`}>
                             {member.initials}
@@ -237,7 +237,7 @@ export default function TeamPage() {
               <CardContent className="p-12 text-center relative">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-0"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/5 rounded-tr-[80px] -z-0"></div>
-                
+
                 <h2 className="text-3xl font-extrabold text-slate-900 mb-4 relative z-10">{t.joinTitle}</h2>
                 <p className="text-slate-500 mb-8 max-w-lg mx-auto text-lg font-light leading-relaxed relative z-10">
                   {t.joinDesc}
