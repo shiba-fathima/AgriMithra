@@ -8,12 +8,12 @@ import { Users, Tractor, Landmark, ExternalLink, Leaf, Truck } from "lucide-reac
 
 const services = [
   {
-    id: "labour-connect",
-    title: "Labour Connect",
-    description: "Find reliable agricultural laborers and seamlessly connect with skilled workers directly around your local farm area.",
+    id: "agrilinked",
+    title: "AgriLinked",
+    description: "Professional Network for Agriculture — connect with agricultural workers, skilled farm laborers, and industry peers seamlessly.",
     icon: Users,
     color: "emerald",
-    link: "https://agrilink-nine-murex.vercel.app/login",
+    link: "https://agri-link-1.vercel.app/",
     image: "/images/services/labours.png"
   },
   {
@@ -26,21 +26,21 @@ const services = [
     image: "/images/services/equipments.png"
   },
   {
-    id: "govt-schemes",
-    title: "Govt Schemes",
-    description: "Explore and apply for localized government agricultural initiatives, subsidies, and financial support schemes tracking seamlessly.",
+    id: "agrischeme-ai",
+    title: "AgriScheme AI",
+    description: "Farmer Government Scheme Portal — explore and apply for localized agricultural initiatives, subsidies, and financial support schemes.",
     icon: Landmark,
     color: "blue",
-    link: "https://agroscheme-ju5dam4fe-niyas-js-projects.vercel.app/",
+    link: "https://agri-scheme.vercel.app/",
     image: "/images/services/schemes.png"
   },
   {
     id: "agri-transport",
-    title: "Agri Transport",
-    description: "Reliable logistics and freight transport solutions to securely deliver your farm produce rapidly to markets and buyers.",
+    title: "AgriTransport",
+    description: "RedBus for Agriculture Logistics — reliable freight and transport solutions to securely deliver your farm produce rapidly to markets.",
     icon: Truck,
     color: "purple",
-    link: "https://agri-transport-gules.vercel.app",
+    link: "https://agri-travels-1.vercel.app/",
     image: "/images/services/travels.png"
   }
 ]
