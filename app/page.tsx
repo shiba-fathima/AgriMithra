@@ -2,7 +2,6 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/home/hero-section"
 import { SystemOverview } from "@/components/home/system-overview"
-import { SmartAlerts } from "@/components/home/smart-alerts"
 import { AIInsights } from "@/components/home/ai-insights"
 import { TechArchitecture } from "@/components/home/tech-architecture"
 import { CropMarketInsights } from "@/components/home/crop-market-insights"
@@ -23,7 +22,6 @@ export default function HomePage() {
         <SystemOverview />
         <CropMarketInsights />
         <WeatherIntegration />
-        <SmartAlerts />
         <AIInsights />
         <TechArchitecture />
       </main>

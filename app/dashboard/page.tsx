@@ -35,8 +35,6 @@ import {
   AreaChart
 } from "recharts"
 
-import { WebcamObjectDetector } from "@/components/dashboard/webcam-object-detector"
-
 interface SensorData {
   temperature: number
   humidity: number
@@ -411,9 +409,6 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         </div>
-
-        {/* Live Web Cam AI Detection Feed */}
-        <WebcamObjectDetector />
 
         {/* Weather Integration */}
         <Card className="border-border/50 bg-card shadow-sm">
