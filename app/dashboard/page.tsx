@@ -12,8 +12,7 @@ import {
   Thermometer, 
   Droplets, 
   Wind, 
-  Flame, 
-  Ruler, 
+  Sprout, 
   Activity,
   CloudSun,
   RefreshCw,
@@ -237,14 +236,14 @@ export default function DashboardPage() {
     return () => unsubscribe()
   }, [isLiveMode])
 
-  const sensors = [
-    { key: "temperature", icon: Thermometer, label: "Temperature", unit: "°C", type: "temperature", value: currentData.temperature, prev: previousData.temperature },
-    { key: "humidity", icon: Droplets, label: "Humidity", unit: "%", type: "humidity", value: currentData.humidity, prev: previousData.humidity },
-    { key: "gasLevel", icon: Wind, label: "Gas Level", unit: "ppm", type: "gas", value: currentData.gasLevel, prev: previousData.gasLevel },
-    { key: "flameDetected", icon: Flame, label: "Flame Detection", unit: "", type: "flame", value: currentData.flameDetected, prev: previousData.flameDetected },
-    { key: "distance", icon: Ruler, label: "Distance", unit: "cm", type: "distance", value: currentData.distance, prev: previousData.distance },
-    { key: "button", icon: ToggleLeft, label: "Button State", unit: "", type: "button", value: currentData.button, prev: previousData.button },
-    { key: "objectDetection", icon: Eye, label: "Object Detection", unit: "", type: "object", value: currentData.objectDetection, prev: previousData.objectDetection },
+  const metrics = [
+    { key: "temperature", icon: Thermometer, label: "Ambient Temperature", unit: "°C", type: "temperature", value: currentData.temperature, prev: previousData.temperature },
+    { key: "humidity", icon: Droplets, label: "Relative Humidity", unit: "%", type: "humidity", value: currentData.humidity, prev: previousData.humidity },
+    { key: "gasLevel", icon: Wind, label: "Air Quality Index", unit: " AQI", type: "gas", value: currentData.gasLevel, prev: previousData.gasLevel },
+    { key: "flameDetected", icon: Sprout, label: "Crop Thermal Health", unit: "", type: "flame", value: currentData.flameDetected, prev: previousData.flameDetected },
+    { key: "distance", icon: Activity, label: "Reservoir Water Level", unit: "%", type: "distance", value: currentData.distance, prev: previousData.distance },
+    { key: "button", icon: ToggleLeft, label: "Irrigation Flow Status", unit: "", type: "button", value: currentData.button, prev: previousData.button },
+    { key: "objectDetection", icon: Eye, label: "Field Surveillance", unit: "", type: "object", value: currentData.objectDetection, prev: previousData.objectDetection },
   ]
 
   return (
@@ -255,7 +254,7 @@ export default function DashboardPage() {
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Live Dashboard</h1>
-            <p className="text-muted-foreground mt-1">Real-time sensor monitoring and analytics</p>
+            <p className="text-muted-foreground mt-1">Real-time environmental monitoring, market trends, and agricultural analytics</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2">
@@ -282,27 +281,27 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Sensor Cards */}
+        {/* Environmental & Field Metrics */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 mb-8">
-          {sensors.map((sensor) => {
-            const status = getStatus(sensor.type, sensor.value)
-            const displayValue = sensor.type === "flame" 
-              ? (sensor.value ? "DETECTED" : "CLEAR")
-              : sensor.type === "button"
-              ? (sensor.value ? "PRESSED" : "NOT PRESSED")
-              : sensor.type === "object"
-              ? sensor.value
-              : `${sensor.value}${sensor.unit}`
-            const trend = (sensor.type !== "flame" && sensor.type !== "button" && sensor.type !== "object") 
-              ? getTrend(sensor.value as number, sensor.prev as number) 
+          {metrics.map((metric) => {
+            const status = getStatus(metric.type, metric.value)
+            const displayValue = metric.type === "flame" 
+              ? (metric.value ? "ELEVATED" : "OPTIMAL")
+              : metric.type === "button"
+              ? (metric.value ? "ACTIVE" : "STANDBY")
+              : metric.type === "object"
+              ? metric.value
+              : `${metric.value}${metric.unit}`
+            const trend = (metric.type !== "flame" && metric.type !== "button" && metric.type !== "object") 
+              ? getTrend(metric.value as number, metric.prev as number) 
               : null
 
             return (
-              <Card key={sensor.key} className="border-border/50 bg-card shadow-sm">
+              <Card key={metric.key} className="border-border/50 bg-card shadow-sm">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${status.variant === "destructive" ? "bg-destructive/10" : status.variant === "secondary" ? "bg-warning/10" : "bg-primary/10"}`}>
-                      <sensor.icon className={`h-5 w-5 ${status.variant === "destructive" ? "text-destructive" : status.variant === "secondary" ? "text-warning" : "text-primary"}`} />
+                      <metric.icon className={`h-5 w-5 ${status.variant === "destructive" ? "text-destructive" : status.variant === "secondary" ? "text-warning" : "text-primary"}`} />
                     </div>
                     <Badge 
                       variant={status.variant}
@@ -313,7 +312,7 @@ export default function DashboardPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground mb-1">{sensor.label}</p>
+                  <p className="text-sm text-muted-foreground mb-1">{metric.label}</p>
                   <div className="flex items-center justify-between">
                     <p className="text-2xl font-bold text-foreground">{displayValue}</p>
                     {trend && <trend.icon className={`h-4 w-4 ${trend.color}`} />}
@@ -370,7 +369,7 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Wind className="h-5 w-5 text-secondary" />
-                Gas Level Monitor
+                Air Quality & Environmental Index
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -394,9 +393,9 @@ export default function DashboardPage() {
                       stroke="oklch(0.55 0.12 230)" 
                       strokeWidth={2}
                       dot={{ fill: "oklch(0.55 0.12 230)", strokeWidth: 0, r: 3 }}
-                      name="Gas (ppm)"
+                      name="AQI Level"
                     />
-                    {/* Danger threshold line */}
+                    {/* Caution threshold line */}
                     <Line 
                       type="monotone" 
                       dataKey={() => 300} 
@@ -404,7 +403,7 @@ export default function DashboardPage() {
                       strokeDasharray="5 5"
                       strokeWidth={1}
                       dot={false}
-                      name="Danger Threshold"
+                      name="Advisory Threshold"
                     />
                   </LineChart>
                 </ResponsiveContainer>

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Activity, Shield, Cpu } from "lucide-react"
+import { ArrowRight, Activity, Shield, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function HeroSection() {
@@ -34,7 +34,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mb-10 text-lg sm:text-xl leading-relaxed text-pretty max-w-2xl mx-auto text-muted-foreground font-light drop-shadow"
           >
-            Real-time monitoring and intelligent decision-making using IoT sensors and cloud integration for smarter visually-optimized farming operations.
+            Real-time intelligence and smart decision-making using cloud AI analytics, live market trends, and precision weather forecasting for modern farming operations.
           </motion.p>
 
           <motion.div 
@@ -50,7 +50,7 @@ export function HeroSection() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="rounded-full px-8 border-primary/20 text-foreground hover:bg-primary/10 backdrop-blur-md transition-all duration-300 bg-background/50 shadow-sm">
-              <Link href="/services">Explore Services</Link>
+              <Link href="/agrisathi">Ask AgriSathi AI</Link>
             </Button>
           </motion.div>
         </div>
@@ -71,8 +71,8 @@ export function HeroSection() {
             <span className="text-sm font-medium text-foreground">Smart Alerts</span>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-border/50 bg-card/60 backdrop-blur-xl px-6 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <Cpu className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium text-foreground">IoT Integration</span>
+            <Sparkles className="h-5 w-5 text-primary" />
+            <span className="text-sm font-medium text-foreground">AI Intelligence</span>
           </div>
         </motion.div>
       </div>

@@ -13,35 +13,35 @@ import { Button } from "@/components/ui/button"
 const faqs = [
   {
     question: "How does the AgriMithra system work?",
-    answer: "AgriMithra uses a network of IoT sensors (temperature, humidity, gas, flame, ultrasonic) connected to ESP32 microcontrollers. These devices collect real-time field data and transmit it via WiFi to our secure cloud backend. The web dashboard then displays this data with intelligent alerts and AI-powered recommendations for optimal farming decisions.",
+    answer: "AgriMithra is an AI-powered agricultural intelligence platform. It synthesizes real-time satellite weather forecasts, regional climate metrics, APMC mandi commodity rates, and AI agronomic models. The web dashboard and AgriSathi AI provide actionable recommendations, disease guidance, and smart alerts without requiring expensive proprietary hardware.",
   },
   {
-    question: "Does the system require internet connectivity?",
-    answer: "Yes, internet connectivity is required for real-time data transmission and cloud synchronization. However, the ESP32 modules can store data locally during brief connectivity interruptions and sync automatically when the connection is restored. We recommend a stable WiFi connection with at least 1 Mbps upload speed for optimal performance.",
+    question: "Do I need to purchase any hardware or sensors to use AgriMithra?",
+    answer: "No! AgriMithra is entirely software and cloud-based. You do not need to purchase, install, or maintain any physical sensors or hardware devices. Everything runs seamlessly in your web browser on your phone, tablet, or computer.",
   },
   {
-    question: "How are sensor alerts generated?",
-    answer: "Alerts are generated based on predefined thresholds and AI analysis. For example, temperature above 35°C triggers a warning, gas levels above 300ppm indicate danger, and flame detection immediately activates emergency protocols. You can customize these thresholds from the dashboard settings based on your specific crop and environmental requirements.",
+    question: "How are smart alerts generated?",
+    answer: "Alerts are generated through automated AI analysis of localized meteorological forecasts, mandi price dynamics, and agronomic risk indicators (such as pest infestation windows, extreme temperature swings, and rainfall forecasts).",
   },
   {
     question: "Is AgriMithra affordable for small farmers?",
-    answer: "Absolutely! We designed AgriMithra with affordability in mind. The basic sensor kit costs around $50-100 for hardware, and our software platform offers a free tier for small farms (up to 5 sensors). Premium features like AI insights and advanced analytics are available through affordable monthly subscriptions starting at $9.99/month.",
+    answer: "Yes! AgriMithra is designed to be accessible for every farmer. Since there is zero hardware investment required, farmers can freely track mandi prices, receive weather advisories, and consult the multilingual AgriSathi AI assistant without expensive setup costs.",
   },
   {
     question: "Can small-scale farmers use this system effectively?",
-    answer: "Yes, AgriMithra is designed to scale from small backyard farms to large commercial operations. Small farmers can start with just 2-3 essential sensors (temperature, humidity, soil moisture) and expand as needed. Our mobile-friendly dashboard makes it easy to monitor your farm from anywhere, even without technical expertise.",
+    answer: "Absolutely! AgriMithra is built specifically for smallholder farmers. The platform is lightweight, supports voice queries in regional languages (Kannada, Hindi, Tamil, Telugu, and more), and provides practical, clear guidance for daily crop management.",
   },
   {
     question: "How is my farm data secured?",
-    answer: "We take data security very seriously. All sensor data is encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. API keys and sensitive credentials are stored securely on our backend servers - never in the frontend code. We are GDPR compliant and never share your farm data with third parties without explicit consent.",
+    answer: "We take data security very seriously. All communication is encrypted in transit using modern TLS and stored securely on cloud infrastructure. We respect farmer privacy and never sell or share your agricultural records with third parties without consent.",
   },
   {
-    question: "What sensors are compatible with the system?",
-    answer: "AgriMithra supports a wide range of sensors including DHT11/DHT22 (temperature/humidity), MQ2/MQ135 (gas detection), HC-SR04 (ultrasonic distance), flame sensors, soil moisture sensors, light sensors, and pH sensors. We also support integration with third-party weather stations and commercial agricultural sensors via our open API.",
+    question: "What data sources does AgriMithra integrate with?",
+    answer: "AgriMithra integrates live meteorological data from Open-Meteo, APMC mandi commodity market pricing indices, reverse-geocoded spatial mapping, and Google Generative AI for agricultural disease detection and expert advisory.",
   },
   {
-    question: "Can I integrate AgriMithra with my existing farm equipment?",
-    answer: "Yes, our platform supports integration with various farm management systems and equipment through our REST API. We offer pre-built integrations for popular irrigation controllers, weather stations, and farm management software. Our team can also develop custom integrations for specialized equipment upon request.",
+    question: "How can AgriSathi AI help with my farming decisions?",
+    answer: "AgriSathi AI is available 24/7 to answer questions about crop diseases, pest remedies, organic fertilization, government schemes (like PM-KISAN and crop insurance), and sowing schedules in your native language via text or voice.",
   },
 ]
 
@@ -61,7 +61,7 @@ export default function FAQPage() {
                 Frequently Asked Questions
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-                Find answers to common questions about AgriMithra, our smart farming platform, and IoT integration.
+                Find answers to common questions about AgriMithra, our smart farming platform, and AI-driven agricultural advisory.
               </p>
             </div>
           </div>

@@ -1,14 +1,10 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: 'AgriMithra - Smart Farm Management System',
-  description: 'Real-time monitoring and intelligent decision-making using IoT sensors and cloud integration for smart farming',
+  description: 'Real-time crop analytics, market insights, and AI-powered agricultural intelligence for smart farming',
   generator: 'v0.app',
   icons: {
     icon: [

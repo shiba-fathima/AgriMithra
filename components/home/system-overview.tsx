@@ -1,29 +1,29 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Radio, Cpu, Cloud, Monitor, ArrowRight } from "lucide-react"
+import { Globe, Brain, Cloud, Monitor, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 
 const steps = [
   {
-    icon: Radio,
-    title: "Sensors",
-    description: "DHT, MQ2, Flame, Ultrasonic sensors collect field data",
+    icon: Globe,
+    title: "Data Ingestion",
+    description: "Regional weather, satellite feeds, and APMC market prices collected in real-time",
   },
   {
-    icon: Cpu,
-    title: "ESP32",
-    description: "Microcontroller processes and transmits sensor readings",
+    icon: Brain,
+    title: "AI Processing",
+    description: "Machine learning models analyze crop health, weather trends, and farm risk indicators",
   },
   {
     icon: Cloud,
-    title: "Cloud",
-    description: "Firebase/Node.js backend stores and processes data",
+    title: "Cloud Engine",
+    description: "High-performance cloud database securely synchronizes data and predictive insights",
   },
   {
     icon: Monitor,
-    title: "Dashboard",
-    description: "Web app displays real-time insights and alerts",
+    title: "Smart Dashboard",
+    description: "Interactive dashboard delivers actionable alerts, crop prices, and agronomy advice",
   },
 ]
 
@@ -58,7 +58,7 @@ export function SystemOverview() {
         >
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mb-4">System Architecture.</h2>
           <p className="text-slate-500 text-lg font-light">
-            End-to-end IoT pipeline from precise field sensors to an intelligent, minimal dashboard.
+            End-to-end intelligent agricultural pipeline from live field and market data to actionable farm advisory.
           </p>
         </motion.div>
 

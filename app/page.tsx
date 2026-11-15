@@ -2,10 +2,8 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/home/hero-section"
 import { SystemOverview } from "@/components/home/system-overview"
-import { SensorMonitoring } from "@/components/home/sensor-monitoring"
 import { SmartAlerts } from "@/components/home/smart-alerts"
 import { AIInsights } from "@/components/home/ai-insights"
-import { HardwareIntegration } from "@/components/home/hardware-integration"
 import { TechArchitecture } from "@/components/home/tech-architecture"
 import { CropMarketInsights } from "@/components/home/crop-market-insights"
 import { WeatherIntegration } from "@/components/home/weather-integration"
@@ -24,11 +22,9 @@ export default function HomePage() {
         <HeroSection />
         <SystemOverview />
         <CropMarketInsights />
-        <SensorMonitoring />
         <WeatherIntegration />
         <SmartAlerts />
         <AIInsights />
-        <HardwareIntegration />
         <TechArchitecture />
       </main>
       <Footer />

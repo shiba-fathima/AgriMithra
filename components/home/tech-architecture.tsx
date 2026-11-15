@@ -7,23 +7,23 @@ import { motion } from "framer-motion"
 const architectureLayers = [
   {
     icon: Wifi,
-    title: "Data Collection",
-    description: "ESP32 sends sensor data via WiFi to secure endpoints",
+    title: "Data Ingestion",
+    description: "Ingests real-time climate, APMC market rates, and satellite metrics securely",
   },
   {
     icon: Server,
-    title: "Backend Processing",
-    description: "Firebase / Node.js backend processes and validates data",
+    title: "AI Processing",
+    description: "Machine learning backend processes and validates agricultural intelligence",
   },
   {
     icon: Database,
     title: "Cloud Storage",
-    description: "Real-time database stores historical and live values",
+    description: "Real-time cloud database stores historical records and live analytics",
   },
   {
     icon: Globe,
     title: "Web Application",
-    description: "Frontend fetches and displays data with live updates",
+    description: "Interactive dashboard delivers actionable alerts, crop prices, and farm insights",
   },
 ]
 
@@ -52,7 +52,7 @@ export function TechArchitecture() {
         >
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mb-4">Technical Architecture.</h2>
           <p className="text-slate-500 text-lg font-light">
-            Secure, scalable 3D-integrated infrastructure designed for real-time agricultural monitoring.
+            Secure, scalable cloud infrastructure designed for real-time agricultural intelligence.
           </p>
         </motion.div>
 

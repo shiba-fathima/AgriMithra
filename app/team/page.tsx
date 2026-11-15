@@ -14,14 +14,14 @@ const translations = {
     meetSubtitle: "A passionate group of developers, engineers, and designers building the future of smart agriculture.",
     descBRK: "Specializes in React and Next.js. Designed and built the responsive web dashboard with real-time data visualization.",
     descNJ: "Expert in Node.js and Firebase. Built the secure API infrastructure and real-time data synchronization systems.",
-    descGRS: "IoT specialist with expertise in ESP32 and sensor integration. Designed the hardware architecture and firmware.",
-    descBD: "Software and Hardware Coordinator. Machine learning expert. Developed the predictive models for weather analysis and crop recommendations.",
+    descGRS: "Cloud & systems architect. Designed the scalable data processing architecture and real-time cloud analytics pipeline.",
+    descBD: "Team Lead & Machine Learning specialist. Developed the predictive models for weather analysis, APMC crop trends, and multilingual assistant.",
     joinTitle: "Join Our Team",
     joinDesc: "We are always looking for talented individuals passionate about agriculture and technology.",
     roles: {
       "Frontend Developer": "Frontend Developer",
       "Backend Developer": "Backend Developer",
-      "Hardware Engineer": "Hardware Engineer",
+      "Systems Engineer": "Systems Engineer",
       "Team Leader": "Team Leader"
     }
   },
@@ -30,14 +30,14 @@ const translations = {
     meetSubtitle: "ಸ್ಮಾರ್ಟ್ ಕೃಷಿಯ ಭವಿಷ್ಯವನ್ನು ರೂಪಿಸುತ್ತಿರುವ ಡೆವಲಪರ್‌ಗಳ, ಎಂಜಿನಿಯರ್‌ಗಳ ಮತ್ತು ವಿನ್ಯಾಸಕರ ಭಾವನಾತ್ಮಕ ತಂಡ.",
     descBRK: "React ಮತ್ತು Next.js ನಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದ್ದಾರೆ. ನೈಜ-ಸಮಯದ ಡೇಟಾ ವಿಶ್ಲೇಷಣಾ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ವಿನ್ಯಾಸಗೊಳಿಸಿದವರು.",
     descNJ: "Node.js ಮತ್ತು Firebase ತಜ್ಞರು. ಸುರಕ್ಷಿತ API ಮತ್ತು ಲೈವ್ ಡೇಟಾ ವ್ಯವಸ್ಥೆಗಳನ್ನು ನಿರ್ಮಿಸಿದ್ದಾರೆ.",
-    descGRS: "IoT ತಜ್ಞ. ESP32 ಹಾಗೂ ಸೆನ್ಸಾರ್ ಅಳವಡಿಕೆಯಲ್ಲಿ ಪರಿಣತರು. ಹಾರ್ಡ್‌ವೇರ್ ವಿನ್ಯಾಸವನ್ನು ರೂಪಿಸಿದ್ದಾರೆ.",
-    descBD: "ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಹಾರ್ಡ್‌ವೇರ್ ಸಂಯೋಜಕಿ. ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ (AI) ತಜ್ಞೆ. ಹವಾಮಾನ ಮಾದರಿಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ್ದಾರೆ.",
+    descGRS: "ಕ್ಲೌಡ್ ಮತ್ತು ಸಿಸ್ಟಮ್ಸ್ ವಾಸ್ತುಶಿಲ್ಪಿ. ಡೇಟಾ ವಿಶ್ಲೇಷಣೆ ಮತ್ತು ನೈಜ-ಸಮಯದ ಕ್ಲೌಡ್ ವ್ಯವಸ್ಥೆಗಳನ್ನು ನಿರ್ಮಿಸಿದ್ದಾರೆ.",
+    descBD: "ತಂಡದ ನಾಯಕಿ ಮತ್ತು ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ (AI) ತಜ್ಞೆ. ಹವಾಮಾನ ಮಾದರಿಗಳು ಮತ್ತು ಬೆಳೆ ವಿಶ್ಲೇಷಣೆಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ್ದಾರೆ.",
     joinTitle: "ನಮ್ಮ ತಂಡಕ್ಕೆ ಸೇರಿ",
     joinDesc: "ಕೃಷಿ ಮತ್ತು ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಆಸಕ್ತಿ ಇರುವ ಪ್ರತಿಭಾವಂತರನ್ನು ನಾವು ಯಾವಾಗಲೂ ಸ್ವಾಗತಿಸುತ್ತೇವೆ.",
     roles: {
       "Frontend Developer": "ಫ್ರಂಟ್-ಎಂಡ್ ಡೆವಲಪರ್",
       "Backend Developer": "ಬ್ಯಾಕ್-ಎಂಡ್ ಡೆವಲಪರ್",
-      "Hardware Engineer": "ಹಾರ್ಡ್‌ವೇರ್ ಎಂಜಿನಿಯರ್",
+      "Systems Engineer": "ಸಿಸ್ಟಮ್ಸ್ ಎಂಜಿನಿಯರ್",
       "Team Leader": "ತಂಡದ ನಾಯಕಿ"
     }
   }
@@ -92,8 +92,8 @@ const teamMembersData: TeamMember[] = [
   },
   {
     name: "RAFIYA G",
-    roleKey: "Hardware Engineer",
-    department: "Hardware",
+    roleKey: "Systems Engineer",
+    department: "Cloud & Systems",
     descKey: "descGRS",
     initials: "RG",
     color: "bg-warning/10 text-warning-foreground",
@@ -107,7 +107,7 @@ function getDepartmentColor(department: string) {
   switch (department) {
     case "Frontend": return "bg-primary/10 text-primary border-primary/20"
     case "Backend": return "bg-secondary/10 text-secondary border-secondary/20"
-    case "Hardware": return "bg-warning/10 text-warning-foreground border-warning/20"
+    case "Cloud & Systems": return "bg-warning/10 text-warning-foreground border-warning/20"
     case "AI": return "bg-accent/10 text-accent-foreground border-accent/20"
     default: return "bg-muted text-muted-foreground border-border"
   }
@@ -245,7 +245,7 @@ export default function TeamPage() {
                 <div className="flex flex-wrap items-center justify-center gap-4 relative z-10">
                   <Badge variant="outline" className="px-4 py-2 text-sm bg-primary/5 border-primary/20 text-primary">Frontend</Badge>
                   <Badge variant="outline" className="px-4 py-2 text-sm bg-secondary/5 border-secondary/20 text-secondary">Backend</Badge>
-                  <Badge variant="outline" className="px-4 py-2 text-sm bg-warning/5 border-warning/20 text-amber-600">IoT/Hardware</Badge>
+                  <Badge variant="outline" className="px-4 py-2 text-sm bg-warning/5 border-warning/20 text-amber-600">Cloud & Systems</Badge>
                   <Badge variant="outline" className="px-4 py-2 text-sm bg-accent/5 border-accent/20 text-purple-600">AI/ML</Badge>
                 </div>
               </CardContent>

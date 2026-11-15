@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-500">
-              AI + IoT powered agricultural system.
+              AI-powered agricultural management platform.
             </p>
           </div>
 

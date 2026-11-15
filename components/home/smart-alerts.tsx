@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertTriangle, Flame, Wind, Ruler, Thermometer, Bell } from "lucide-react"
+import { AlertTriangle, CloudRain, TrendingUp, Droplets, Sun, Bell, Sprout } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface Alert {
@@ -14,12 +14,12 @@ interface Alert {
 }
 
 const alertTemplates = [
-  { type: "danger" as const, icon: Flame, message: "Fire detected - Buzzer Activated" },
-  { type: "warning" as const, icon: Wind, message: "Gas leakage detected" },
-  { type: "info" as const, icon: Ruler, message: "Object detected within range" },
-  { type: "warning" as const, icon: Thermometer, message: "High temperature - Irrigation recommended" },
-  { type: "info" as const, icon: AlertTriangle, message: "Moisture levels below optimal" },
-  { type: "warning" as const, icon: AlertTriangle, message: "Unusual activity detected in sector A3" },
+  { type: "danger" as const, icon: CloudRain, message: "Heavy Storm Alert: Excessive precipitation forecasted — secure drainage channels" },
+  { type: "warning" as const, icon: AlertTriangle, message: "Pest Warning: Humidity spike increases fungal blight risk across Sector A" },
+  { type: "info" as const, icon: TrendingUp, message: "Market Rate Alert: Coconut and Rubber mandi prices surging (+2.1%)" },
+  { type: "warning" as const, icon: Droplets, message: "Irrigation Advisory: High evapotranspiration — schedule morning irrigation" },
+  { type: "info" as const, icon: Sun, message: "Harvest Window: Favorable clear sunny weather expected over the next 48 hours" },
+  { type: "info" as const, icon: Sprout, message: "Nutrient Advisory: Optimal window for organic bio-fertilizer application" },
 ]
 
 function generateAlerts(): Alert[] {
@@ -76,7 +76,7 @@ export function SmartAlerts() {
         >
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mb-4">Smart Alerts Panel.</h2>
           <p className="text-slate-500 text-lg font-light">
-            Intelligent 3D-tracked notifications based on sensor thresholds and proactive AI analysis.
+            Intelligent proactive notifications based on real-time climate data, market dynamics, and predictive AI analysis.
           </p>
         </motion.div>
 
