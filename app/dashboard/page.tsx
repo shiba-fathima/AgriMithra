@@ -3,25 +3,18 @@
 import { useEffect, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { ref, onValue } from "firebase/database"
-import { database } from "@/lib/firebase"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Switch } from "@/components/ui/switch"
 import { 
   Thermometer, 
   Droplets, 
   Wind, 
-  Sprout, 
-  Activity,
   CloudSun,
   RefreshCw,
   TrendingUp,
   TrendingDown,
   Minus,
-  Eye,
-  ToggleLeft,
-  ScanLine
+  Activity
 } from "lucide-react"
 import { 
   LineChart, 
@@ -35,17 +28,6 @@ import {
   AreaChart
 } from "recharts"
 
-interface SensorData {
-  temperature: number
-  humidity: number
-  gasLevel: number
-  flameDetected: boolean
-  distance: number
-  button: boolean
-  objectDetection: string
-  timestamp: Date
-}
-
 interface WeatherData {
   temp: number
   humidity: number
@@ -53,71 +35,24 @@ interface WeatherData {
   location: string
 }
 
-function generateSensorData(): SensorData {
-  return {
-    temperature: Math.round((22 + Math.random() * 18) * 10) / 10,
-    humidity: Math.round((35 + Math.random() * 45) * 10) / 10,
-    gasLevel: Math.round(50 + Math.random() * 350),
-    flameDetected: Math.random() > 0.95,
-    distance: Math.round((15 + Math.random() * 85) * 10) / 10,
-    button: Math.random() > 0.5,
-    objectDetection: Math.random() > 0.8 ? "MOTION DETECTED" : "None",
-    timestamp: new Date(),
-  }
-}
-
 function generateHistoricalData(count: number) {
   return Array.from({ length: count }, (_, i) => ({
     time: `${i * 5}m`,
     temperature: Math.round((22 + Math.random() * 15) * 10) / 10,
     humidity: Math.round((40 + Math.random() * 35) * 10) / 10,
-    gasLevel: Math.round(80 + Math.random() * 200),
+    rainfall: Math.round(Math.random() * 20 * 10) / 10,
   }))
 }
 
-function getStatus(type: string, value: number | boolean | string): { label: string; variant: "default" | "secondary" | "destructive" } {
-  if (type === "flame") {
-    return value ? { label: "DANGER", variant: "destructive" } : { label: "SAFE", variant: "default" }
-  }
-  if (type === "temperature") {
-    if (value as number > 38) return { label: "DANGER", variant: "destructive" }
-    if (value as number > 32) return { label: "WARNING", variant: "secondary" }
-    return { label: "NORMAL", variant: "default" }
-  }
-  if (type === "humidity") {
-    if ((value as number) < 25 || (value as number) > 85) return { label: "WARNING", variant: "secondary" }
-    return { label: "NORMAL", variant: "default" }
-  }
-  if (type === "gas") {
-    if (value as number > 350) return { label: "DANGER", variant: "destructive" }
-    if (value as number > 200) return { label: "WARNING", variant: "secondary" }
-    return { label: "NORMAL", variant: "default" }
-  }
-  if (type === "distance") {
-    if (value as number < 15) return { label: "ALERT", variant: "secondary" }
-    return { label: "CLEAR", variant: "default" }
-  }
-  if (type === "button") {
-    return value ? { label: "PRESSED", variant: "secondary" } : { label: "RELEASED", variant: "default" }
-  }
-  if (type === "object") {
-    return value !== "None" ? { label: "DETECTED", variant: "secondary" } : { label: "CLEAR", variant: "default" }
-  }
-  return { label: "NORMAL", variant: "default" }
-}
-
-function getTrend(current: number, previous: number) {
-  if (current > previous * 1.02) return { icon: TrendingUp, color: "text-destructive" }
-  if (current < previous * 0.98) return { icon: TrendingDown, color: "text-success" }
+function getTrend(arr: number[]) {
+  const last = arr[arr.length - 1]
+  const prev = arr[arr.length - 2]
+  if (last > prev * 1.02) return { icon: TrendingUp, color: "text-destructive" }
+  if (last < prev * 0.98) return { icon: TrendingDown, color: "text-success" }
   return { icon: Minus, color: "text-muted-foreground" }
 }
 
-// Replaced by real-time hook in component
-
 export default function DashboardPage() {
-  const [isLiveMode, setIsLiveMode] = useState(true)
-  const [currentData, setCurrentData] = useState<SensorData>(generateSensorData())
-  const [previousData, setPreviousData] = useState<SensorData>(generateSensorData())
   const [chartData, setChartData] = useState(generateHistoricalData(12))
   const [lastUpdated, setLastUpdated] = useState(new Date())
   const [weatherData, setWeatherData] = useState<WeatherData>({
@@ -133,21 +68,20 @@ export default function DashboardPage() {
 
     const fetchWeather = async (latitude: number, longitude: number, defaultLoc: string) => {
       try {
-        let exactLocation = defaultLoc;
-        // Resolve exact city/location using provided API Key (Google Maps Reverse Geocoding)
+        let exactLocation = defaultLoc
         try {
-           const geoRes = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCpMNsUnsGyvnWTrCauXkt_yj8cXI6tGTc`);
-           const geoData = await geoRes.json();
-           if (geoData.status === "OK" && geoData.results.length > 0) {
-              const cityComp = geoData.results[0].address_components.find((c: any) => c.types.includes("locality"));
-              if (cityComp) {
-                 exactLocation = cityComp.long_name;
-              } else {
-                 exactLocation = geoData.results[0].address_components[0].long_name;
-              }
-           }
+          const geoRes = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCpMNsUnsGyvnWTrCauXkt_yj8cXI6tGTc`)
+          const geoData = await geoRes.json()
+          if (geoData.status === "OK" && geoData.results.length > 0) {
+            const cityComp = geoData.results[0].address_components.find((c: any) => c.types.includes("locality"))
+            if (cityComp) {
+              exactLocation = cityComp.long_name
+            } else {
+              exactLocation = geoData.results[0].address_components[0].long_name
+            }
+          }
         } catch (err) {
-           console.log("Geocoding ignored", err);
+          console.log("Geocoding ignored", err)
         }
 
         const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`)
@@ -175,73 +109,53 @@ export default function DashboardPage() {
     }
   }, [])
 
+  // Auto-refresh simulated chart data every 10s
   useEffect(() => {
-    if (!isLiveMode) {
-      const interval = setInterval(() => {
-        setCurrentData(prev => {
-          setPreviousData(prev)
-          return generateSensorData()
-        })
-        setLastUpdated(new Date())
-        setChartData(prev => {
-          const newData = [...prev.slice(1), {
-            time: "now",
-            temperature: Math.round((22 + Math.random() * 15) * 10) / 10,
-            humidity: Math.round((40 + Math.random() * 35) * 10) / 10,
-            gasLevel: Math.round(80 + Math.random() * 200),
-          }]
-          return newData.map((d, i) => ({ ...d, time: `${i * 5}m` }))
-        })
-      }, 2000)
+    const interval = setInterval(() => {
+      setChartData(generateHistoricalData(12))
+      setLastUpdated(new Date())
+    }, 10000)
+    return () => clearInterval(interval)
+  }, [])
 
-      return () => clearInterval(interval)
-    }
+  const temps = chartData.map(d => d.temperature)
+  const humids = chartData.map(d => d.humidity)
+  const tempTrend = getTrend(temps)
+  const humidTrend = getTrend(humids)
 
-    // Live mode: Connect to Firebase Realtime Database
-    const sensorsRef = ref(database, 'sensors')
-    
-    const unsubscribe = onValue(sensorsRef, (snapshot) => {
-      const data = snapshot.val()
-      if (data) {
-        setCurrentData(prev => {
-          setPreviousData(prev)
-          return {
-            temperature: data.temperature ?? 0,
-            humidity: data.humidity ?? 0,
-            gasLevel: data.gasLevel ?? (data.gasDetected ? 450 : 60),
-            flameDetected: data.fire ?? false,
-            distance: data.distance ?? 0,
-            button: data.button ?? false,
-            objectDetection: data.objectDetection ?? (data.object ? "MOTION DETECTED" : "None"),
-            timestamp: new Date()
-          }
-        })
-        setLastUpdated(new Date())
-        setChartData(prev => {
-          const newData = [...prev.slice(1), {
-            time: "now",
-            temperature: data.temperature ?? 0,
-            humidity: data.humidity ?? 0,
-            gasLevel: data.gasLevel ?? (data.gasDetected ? 450 : 60),
-          }]
-          return newData.map((d, i) => ({ ...d, time: `${i * 5}m` }))
-        })
-      }
-    }, (error) => {
-      console.error("Firebase subscription error:", error)
-    })
-
-    return () => unsubscribe()
-  }, [isLiveMode])
-
-  const metrics = [
-    { key: "temperature", icon: Thermometer, label: "Ambient Temperature", unit: "°C", type: "temperature", value: currentData.temperature, prev: previousData.temperature },
-    { key: "humidity", icon: Droplets, label: "Relative Humidity", unit: "%", type: "humidity", value: currentData.humidity, prev: previousData.humidity },
-    { key: "gasLevel", icon: Wind, label: "Air Quality Index", unit: " AQI", type: "gas", value: currentData.gasLevel, prev: previousData.gasLevel },
-    { key: "flameDetected", icon: Sprout, label: "Crop Thermal Health", unit: "", type: "flame", value: currentData.flameDetected, prev: previousData.flameDetected },
-    { key: "distance", icon: Activity, label: "Reservoir Water Level", unit: "%", type: "distance", value: currentData.distance, prev: previousData.distance },
-    { key: "button", icon: ToggleLeft, label: "Irrigation Flow Status", unit: "", type: "button", value: currentData.button, prev: previousData.button },
-    { key: "objectDetection", icon: Eye, label: "Field Surveillance", unit: "", type: "object", value: currentData.objectDetection, prev: previousData.objectDetection },
+  const summaryCards = [
+    {
+      label: "Avg Temperature",
+      value: `${(temps.reduce((a, b) => a + b, 0) / temps.length).toFixed(1)}°C`,
+      icon: Thermometer,
+      trend: tempTrend,
+      color: "text-orange-500",
+      bg: "bg-orange-50",
+    },
+    {
+      label: "Avg Humidity",
+      value: `${(humids.reduce((a, b) => a + b, 0) / humids.length).toFixed(1)}%`,
+      icon: Droplets,
+      trend: humidTrend,
+      color: "text-blue-500",
+      bg: "bg-blue-50",
+    },
+    {
+      label: "Live Weather",
+      value: `${weatherData.temp}°C`,
+      icon: CloudSun,
+      trend: null,
+      color: "text-yellow-500",
+      bg: "bg-yellow-50",
+    },
+    {
+      label: "Wind Speed",
+      value: weatherData.condition,
+      icon: Wind,
+      trend: null,
+      color: "text-slate-500",
+      bg: "bg-slate-50",
+    },
   ]
 
   return (
@@ -249,76 +163,33 @@ export default function DashboardPage() {
       <Navbar />
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Live Dashboard</h1>
-            <p className="text-muted-foreground mt-1">Real-time environmental monitoring, market trends, and agricultural analytics</p>
+            <h1 className="text-3xl font-bold text-foreground">Farm Dashboard</h1>
+            <p className="text-muted-foreground mt-1">Live weather, climate trends, and agricultural analytics</p>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2">
-              <span className="text-sm text-muted-foreground">Demo Mode</span>
-              <Switch checked={isLiveMode} onCheckedChange={setIsLiveMode} />
-              <span className="text-sm text-muted-foreground">Live Mode</span>
-            </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <RefreshCw className="h-4 w-4 animate-spin" style={{ animationDuration: "4s" }} />
+            <span>Updated: {lastUpdated.toLocaleTimeString()}</span>
           </div>
         </div>
 
-        {/* Status Bar */}
-        <Card className="mb-6 border-primary/20 bg-primary/5">
-          <CardContent className="flex items-center justify-between py-3">
-            <div className="flex items-center gap-2">
-              <div className={`h-2.5 w-2.5 rounded-full ${isLiveMode ? "bg-success animate-pulse" : "bg-muted-foreground"}`} />
-              <span className="text-sm font-medium text-foreground">
-                {isLiveMode ? "Live" : "Demo"} Mode Active
-              </span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <RefreshCw className={`h-4 w-4 ${isLiveMode ? "animate-spin" : ""}`} style={{ animationDuration: "3s" }} />
-              <span>Last updated: {lastUpdated.toLocaleTimeString()}</span>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Environmental & Field Metrics */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 mb-8">
-          {metrics.map((metric) => {
-            const status = getStatus(metric.type, metric.value)
-            const displayValue = metric.type === "flame" 
-              ? (metric.value ? "ELEVATED" : "OPTIMAL")
-              : metric.type === "button"
-              ? (metric.value ? "ACTIVE" : "STANDBY")
-              : metric.type === "object"
-              ? metric.value
-              : `${metric.value}${metric.unit}`
-            const trend = (metric.type !== "flame" && metric.type !== "button" && metric.type !== "object") 
-              ? getTrend(metric.value as number, metric.prev as number) 
-              : null
-
-            return (
-              <Card key={metric.key} className="border-border/50 bg-card shadow-sm">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between">
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${status.variant === "destructive" ? "bg-destructive/10" : status.variant === "secondary" ? "bg-warning/10" : "bg-primary/10"}`}>
-                      <metric.icon className={`h-5 w-5 ${status.variant === "destructive" ? "text-destructive" : status.variant === "secondary" ? "text-warning" : "text-primary"}`} />
-                    </div>
-                    <Badge 
-                      variant={status.variant}
-                      className={status.variant === "default" ? "bg-success text-success-foreground" : status.variant === "secondary" ? "bg-warning text-warning-foreground" : ""}
-                    >
-                      {status.label}
-                    </Badge>
+        {/* Summary Cards */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+          {summaryCards.map((card) => (
+            <Card key={card.label} className="border-border/50 bg-card shadow-sm">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${card.bg}`}>
+                    <card.icon className={`h-5 w-5 ${card.color}`} />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-1">{metric.label}</p>
-                  <div className="flex items-center justify-between">
-                    <p className="text-2xl font-bold text-foreground">{displayValue}</p>
-                    {trend && <trend.icon className={`h-4 w-4 ${trend.color}`} />}
-                  </div>
-                </CardContent>
-              </Card>
-            )
-          })}
+                  {card.trend && <card.trend.icon className={`h-4 w-4 ${card.trend.color}`} />}
+                </div>
+                <p className="text-sm text-muted-foreground mb-1">{card.label}</p>
+                <p className="text-2xl font-bold text-foreground">{card.value}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* Charts */}
@@ -327,7 +198,7 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Activity className="h-5 w-5 text-primary" />
-                Temperature & Humidity Trends
+                Temperature &amp; Humidity Trends
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -366,8 +237,8 @@ export default function DashboardPage() {
           <Card className="border-border/50 bg-card shadow-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Wind className="h-5 w-5 text-secondary" />
-                Air Quality & Environmental Index
+                <Droplets className="h-5 w-5 text-secondary" />
+                Rainfall Forecast Trend
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -387,21 +258,11 @@ export default function DashboardPage() {
                     />
                     <Line 
                       type="monotone" 
-                      dataKey="gasLevel" 
+                      dataKey="rainfall" 
                       stroke="oklch(0.55 0.12 230)" 
                       strokeWidth={2}
                       dot={{ fill: "oklch(0.55 0.12 230)", strokeWidth: 0, r: 3 }}
-                      name="AQI Level"
-                    />
-                    {/* Caution threshold line */}
-                    <Line 
-                      type="monotone" 
-                      dataKey={() => 300} 
-                      stroke="oklch(0.55 0.22 25)" 
-                      strokeDasharray="5 5"
-                      strokeWidth={1}
-                      dot={false}
-                      name="Advisory Threshold"
+                      name="Rainfall (mm)"
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -416,9 +277,9 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
                 <CloudSun className="h-5 w-5 text-primary" />
-                Weather Integration
+                Live Weather Integration
               </CardTitle>
-              <Badge variant="outline" className="text-xs">Powered by Weather API</Badge>
+              <Badge variant="outline" className="text-xs">Powered by Open-Meteo</Badge>
             </div>
           </CardHeader>
           <CardContent>

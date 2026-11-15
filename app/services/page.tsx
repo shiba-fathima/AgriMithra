@@ -65,9 +65,9 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-8 pb-32 flex-grow">
-        {/* Services Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto -mt-24 relative z-20 mb-16">
+      <main className="container mx-auto px-4 py-8 pb-16 flex-grow">
+        {/* Service Cards */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto -mt-24 relative z-20">
           {services.map((service) => (
             <Card key={service.id} className="group overflow-hidden border-none shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 bg-white/95 backdrop-blur-xl flex flex-col rounded-3xl">
               <div className="h-56 w-full overflow-hidden relative">
@@ -105,12 +105,12 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Live Camera AI Vision & Detection Section */}
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-2">Live AI Vision & Farm Surveillance</h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
-              Utilize our integrated camera AI vision model to detect livestock, intruders, vehicles, and farm activity in real-time.
+        {/* AI Camera Detection Section */}
+        <div className="max-w-5xl mx-auto mt-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-3">AI Visual Field Detection</h2>
+            <p className="text-slate-500 text-lg font-light max-w-2xl mx-auto">
+              Use your device camera to detect humans, animals, and vehicles in your field in real time using on-device AI.
             </p>
           </div>
           <WebcamObjectDetector />

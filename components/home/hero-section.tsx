@@ -68,7 +68,7 @@ export function HeroSection() {
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-border/50 bg-card/60 backdrop-blur-xl px-6 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <Shield className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium text-foreground">Market Insights</span>
+            <span className="text-sm font-medium text-foreground">Smart Alerts</span>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-border/50 bg-card/60 backdrop-blur-xl px-6 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <Sparkles className="h-5 w-5 text-primary" />
