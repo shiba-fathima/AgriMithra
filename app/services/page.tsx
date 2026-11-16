@@ -15,16 +15,7 @@ const services = [
     icon: Users,
     color: "emerald",
     link: "https://agri-link-1.vercel.app/",
-    image: "/images/services/labours.png"
-  },
-  {
-    id: "agrirent-equipments",
-    title: "AgriRent Equipments",
-    description: "Rent advanced farming equipment like tractors, drones, and harvesters instantly without heavy upfront investments.",
-    icon: Tractor,
-    color: "amber",
-    link: "https://agrirent-three.vercel.app/",
-    image: "/images/services/equipments.png"
+    image: "/images/services/labours.jpg"
   },
   {
     id: "agrischeme-ai",
@@ -33,7 +24,16 @@ const services = [
     icon: Landmark,
     color: "blue",
     link: "https://agri-scheme.vercel.app/",
-    image: "/images/services/schemes.png"
+    image: "/images/services/schemes.jpg"
+  },
+  {
+    id: "agrirent-equipments",
+    title: "AgriRent Equipments",
+    description: "Rent advanced farming equipment like tractors, drones, and harvesters instantly without heavy upfront investments.",
+    icon: Tractor,
+    color: "amber",
+    link: "https://agrirent-three.vercel.app/",
+    image: "/images/services/equipments.jpg"
   },
   {
     id: "agri-transport",
@@ -42,7 +42,7 @@ const services = [
     icon: Truck,
     color: "purple",
     link: "https://agri-travels-1.vercel.app/",
-    image: "/images/services/travels.png"
+    image: "/images/services/travels.jpg"
   }
 ]
 
@@ -121,3 +121,4 @@ export default function ServicesPage() {
     </div>
   )
 }
+

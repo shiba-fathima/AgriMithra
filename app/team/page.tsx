@@ -201,7 +201,7 @@ export default function TeamPage() {
 
                       {/* Description */}
                       <p className="text-sm text-muted-foreground leading-relaxed mb-6 font-light">
-                        {t[member.descKey as keyof typeof t]}
+                        {(t as any)[member.descKey]}
                       </p>
 
                       {/* Social Links */}

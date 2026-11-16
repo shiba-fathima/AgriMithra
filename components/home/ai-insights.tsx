@@ -32,7 +32,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100 } }
 }
 
 export function AIInsights() {
